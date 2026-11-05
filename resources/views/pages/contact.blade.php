@@ -1,13 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Report us - TechNews</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Public+Sans:wght@400;500;600&display=swap"
-        rel="stylesheet">
+@extends('Layouts.user')
+
+@section('content')
+
+    <main>
+        <div class="wrap page-hero">
+            <p class="eyebrow">Contact</p>
+            <h1>We'd love to hear from you.</h1>
+            <p>Have a question, a story tip or an idea? Send us a message and we will reply within two working days.</p>
+        </div>
+
+        <div class="wrap contact">
+            <div class="card">
+                <form id="contactForm" onsubmit="sendMessage(event)">
+                    <div class="two">
+                        <div class="field">
+                            <label for="name">Your name</label>
+                            <input id="name" name="name">
+                        </div>
+                        <div class="field">
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" placeholder="you@example.com">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="topic">Topic</label>
+                        <select id="topic" name="topic">
+                            <option>General question</option>
+                            <option>Story tip</option>
+                            <option>Advertising or partnership</option>
+                            <option>Report a problem</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+                    <button class="btn" type="submit">Send message</button>
+                    <p class="note" id="formNote"></p>
+                </form>
+            </div>
+
+            <aside class="info">
+                <div class="item"><small>Email</small><b>hello@technews.com</b>
+                    <p>For questions and story tips</p>
+                </div>
+                <div class="item"><small>Phone</small><b>+000 00 000 000</b>
+                    <p>Monday to Friday, 9:00 - 17:00</p>
+                </div>
+                <div class="item"><small>Address</small><b>Your Street, Your City</b>
+                    <p>Your Country</p>
+                </div>
+            </aside>
+        </div>
+
+        <section class="why">
+            <div class="wrap">
+                <div class="head">
+                    <h2>Common questions</h2>
+                </div>
+                <div class="faq">
+                    <details>
+                        <summary>Is TechNews free?</summary>
+                        <p>Yes. Reading the website and receiving the daily email are both free.</p>
+                    </details>
+                    <details>
+                        <summary>How do I unsubscribe from the email?</summary>
+                        <p>Every email has an unsubscribe link at the bottom. One click is enough.</p>
+                    </details>
+                    <details>
+                        <summary>Can I send you a story to cover?</summary>
+                        <p>Of course. Choose "Story tip" in the form above and include a link.</p>
+                    </details>
+                    <details>
+                        <summary>How fast do you reply?</summary>
+                        <p>Usually within two working days.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
     <style>
         :root {
             --bg: #ffffff;
@@ -593,119 +664,5 @@
             .menu a:first-child { border-top: 0 }
             .menu .btn { text-align: center; margin-top: 8px }
         }
-        /* Report page */
-        .report {
-            display: grid;
-            grid-template-columns: 1.2fr .8fr;
-            gap: 48px;
-            padding-bottom: 72px;
-            align-items: start
-        }
-
-        .check {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            margin-bottom: 20px;
-            font-size: 15px
-        }
-
-        @media (max-width:860px) {
-            .report {
-                grid-template-columns: 1fr
-            }
-        }
     </style>
-</head>
-
-<body>
-
-    <x-header />
-
-    <main>
-        <div class="wrap page-hero">
-            <p class="eyebrow">Report us</p>
-            <h1>Found a problem?</h1>
-            <p>If you see wrong information, a broken link or bad content on TechNews, please tell us. We check every report.</p>
-        </div>
-
-        <div class="wrap report">
-            <div class="card">
-                <form id="reportForm" onsubmit="sendReport(event)">
-                    <div class="field">
-                        <label for="type">What do you want to report?</label>
-                        <select id="type" name="type">
-                            <option value="">-- Choose one --</option>
-                            <option>Wrong information in a story</option>
-                            <option>Broken link or page</option>
-                            <option>Spam or bad content</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
-                    <div class="field">
-                        <label for="link">Link to the page (optional)</label>
-                        <input id="link" name="link" placeholder="http://localhost:8000/news-blog">
-                    </div>
-                    <div class="field">
-                        <label for="details">Details</label>
-                        <textarea id="details" name="details" placeholder="Tell us what is wrong..."></textarea>
-                    </div>
-                    <div class="field">
-                        <label for="email">Your email</label>
-                        <input id="email" name="email" type="email" placeholder="you@example.com">
-                    </div>
-                    <label class="check">
-                        <input type="checkbox" name="anonymous"> Send without my email
-                    </label>
-                    <button class="btn" type="submit">Send report</button>
-                    <p class="note" id="reportNote"></p>
-                </form>
-            </div>
-
-            <aside class="info">
-                <div class="item"><small>Step 1</small><b>Send your report</b>
-                    <p>Tell us what is wrong and where you saw it.</p>
-                </div>
-                <div class="item"><small>Step 2</small><b>We check it</b>
-                    <p>Our team looks at every report within 2 days.</p>
-                </div>
-                <div class="item"><small>Step 3</small><b>We fix it</b>
-                    <p>If something is wrong, we update the story.</p>
-                </div>
-            </aside>
-        </div>
-    </main>
-
-    <x-footer />
-
-    <script>
-        // report form
-        function sendReport(event) {
-            event.preventDefault();
-            let form = document.getElementById("reportForm");
-            let note = document.getElementById("reportNote");
-
-            if (form.type.value == "") {
-                note.className = "note err";
-                note.innerHTML = "Please choose what you want to report.";
-                return;
-            }
-            if (form.details.value.length < 10) {
-                note.className = "note err";
-                note.innerHTML = "Please write at least 10 characters.";
-                return;
-            }
-            if (form.anonymous.checked == false && form.email.value.includes("@") == false) {
-                note.className = "note err";
-                note.innerHTML = "Please enter your email, or tick \"Send without my email\".";
-                return;
-            }
-
-            note.className = "note ok";
-            note.innerHTML = "Thank you! We got your report and will check it soon.";
-            form.reset();
-        }
-    </script>
-</body>
-
-</html>
+@endsection

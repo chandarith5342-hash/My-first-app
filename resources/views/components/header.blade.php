@@ -1,15 +1,15 @@
 <header>
   <div class="wrap bar">
-    <a href="{{ url('/landing') }}" class="logo">Tech<span>News</span></a>
+    <a href="{{ url('/') }}" class="logo">Tech<span>News</span></a>
 
     <nav class="menu" id="menu">
-      <a href="{{ url('/landing') }}#latest">Latest</a>
-      <a href="{{ url('/landing') }}#why">Why TechNews</a>
+      <a href="{{ url('/') }}#latest">Latest</a>
+      <a href="{{ url('/') }}#why">Why TechNews</a>
       <a href="{{ url('/news-blog') }}">All News</a>
       <a href="{{ url('/about') }}">About</a>
       <a href="{{ url('/contact') }}">Contact</a>
       <a href="{{ url('/report') }}">Report us</a>
-      <a href="{{ url('/landing') }}#subscribe" class="btn">Subscribe</a>
+      <a href="{{ url('/') }}#subscribe" class="btn">Subscribe</a>
     </nav>
 
     <div class="tools">

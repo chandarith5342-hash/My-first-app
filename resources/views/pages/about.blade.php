@@ -1,13 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>All News - TechNews</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Public+Sans:wght@400;500;600&display=swap"
-        rel="stylesheet">
+@extends('Layouts.user')
+
+@section('title', 'About - TechNews')
+
+@section('content')
+
+    <main>
+        <div class="wrap page-hero">
+            <p class="eyebrow">About us</p>
+            <h1>We make technology news easy to read.</h1>
+            <p>TechNews started with a simple idea: people are busy, and good information should not take an hour to
+                find.</p>
+        </div>
+
+        <div class="wrap stats">
+            <div class="stat"><b>5 min</b><span>to read the daily digest</span></div>
+            <div class="stat"><b>20+</b><span>trusted sources checked every day</span></div>
+            <div class="stat"><b>100%</b><span>free for every reader</span></div>
+        </div>
+
+        <section class="why">
+            <div class="wrap story">
+                <h2>Our story</h2>
+                <div>
+                    <p>We are a small team of developers, teachers and writers who love technology. We kept seeing the
+                        same problem: too many articles, too much noise, and not enough time.</p>
+                    <p>So we built TechNews. It gathers stories from trusted sources, removes repeats, and gives you a
+                        short, clear summary of each one, written in plain language.</p>
+                    <p>Whether you are a student, a developer or just curious, our goal is the same: help you understand
+                        what changed in tech today.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="wrap">
+            <div class="head">
+                <h2>How it works</h2>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <h3>We collect</h3>
+                    <p>New articles arrive automatically from trusted news feeds throughout the day.</p>
+                </div>
+                <div class="step">
+                    <h3>We simplify</h3>
+                    <p>Each story is shortened to the key points, so you know what happened and why it matters.</p>
+                </div>
+                <div class="step">
+                    <h3>You read</h3>
+                    <p>Browse the website or get the best stories in one short email each morning.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="wrap">
+            <div class="head">
+                <h2>The team</h2>
+            </div>
+            <div class="team">
+                <div class="member">
+                    <div class="avatar" style="background:#dbe4ff">A</div>
+                    <h3>Your Name</h3>
+                    <p>Founder and developer</p>
+                </div>
+                <div class="member">
+                    <div class="avatar" style="background:#d9f2e6">B</div>
+                    <h3>Team Member</h3>
+                    <p>Editor</p>
+                </div>
+                <div class="member">
+                    <div class="avatar" style="background:#ffe3dc">C</div>
+                    <h3>Team Member</h3>
+                    <p>Designer</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta wrap">
+            <h2>Read less. Know more.</h2>
+            <p>Get the daily digest and catch up on technology in five minutes.</p>
+            <a href="{{ url('/') }}#subscribe" class="btn">Subscribe for free</a>
+        </section>
+    </main>
     <style>
         :root {
             --bg: #ffffff;
@@ -570,129 +643,5 @@
             .menu a:first-child { border-top: 0 }
             .menu .btn { text-align: center; margin-top: 8px }
         }
-        /* All News page */
-        .news-list {
-            padding-bottom: 72px
-        }
-
-        .news-list .thumb {
-            display: flex;
-            align-items: end;
-            padding: 14px 18px;
-            font: 800 28px var(--head);
-            color: rgba(0, 0, 0, 0.25)
-        }
     </style>
-</head>
-
-<body>
-
-    <x-header />
-
-    <main>
-        <div class="wrap page-hero">
-            <p class="eyebrow">Blog</p>
-            <h1>All News</h1>
-            <p>Every story we have published, all in one place. Pick one and read it in a few minutes.</p>
-        </div>
-
-        <div class="wrap news-list">
-            <div class="grid">
-                <div class="post">
-                    <div class="thumb" style="background:#dbe4ff">AI</div>
-                    <div class="in">
-                        <span class="tag">AI</span>
-                        <h3>Open-source models are catching up fast</h3>
-                        <p>Free models now handle many tasks that needed paid tools a year ago.</p>
-                        <span class="meta">4 min read</span>
-                    </div>
-                </div>
-
-                <div class="post">
-                    <div class="thumb" style="background:#d9f2e6">Web</div>
-                    <div class="in">
-                        <span class="tag">Web</span>
-                        <h3>Browsers get smarter about tracking</h3>
-                        <p>New built-in controls make it easier to keep your browsing private.</p>
-                        <span class="meta">3 min read</span>
-                    </div>
-                </div>
-
-                <div class="post">
-                    <div class="thumb" style="background:#ffe3dc">Security</div>
-                    <div class="in">
-                        <span class="tag">Security</span>
-                        <h3>Password managers explained simply</h3>
-                        <p>What they do, why they are safer, and how to switch in ten minutes.</p>
-                        <span class="meta">5 min read</span>
-                    </div>
-                </div>
-
-                <div class="post">
-                    <div class="thumb" style="background:#fff1cc">Gadgets</div>
-                    <div class="in">
-                        <span class="tag">Gadgets</span>
-                        <h3>Choosing a laptop for coding in 2026</h3>
-                        <p>RAM, battery life, and screen: the three specs that matter most.</p>
-                        <span class="meta">6 min read</span>
-                    </div>
-                </div>
-
-                <div class="post">
-                    <div class="thumb" style="background:#e6dcff">AI</div>
-                    <div class="in">
-                        <span class="tag">AI</span>
-                        <h3>How to use AI tools without losing your skills</h3>
-                        <p>Practical habits for students and developers who use AI every day.</p>
-                        <span class="meta">4 min read</span>
-                    </div>
-                </div>
-
-                <div class="post">
-                    <div class="thumb" style="background:#d6f0f7">Web</div>
-                    <div class="in">
-                        <span class="tag">Web</span>
-                        <h3>Why fast websites win more readers</h3>
-                        <p>A few small changes to images and fonts can cut load time in half.</p>
-                        <span class="meta">3 min read</span>
-                    </div>
-                </div>
-
-                <div class="post">
-                    <div class="thumb" style="background:#ffe3dc">Security</div>
-                    <div class="in">
-                        <span class="tag">Security</span>
-                        <h3>How to spot a phishing email</h3>
-                        <p>Five simple signs that an email is trying to steal your password.</p>
-                        <span class="meta">4 min read</span>
-                    </div>
-                </div>
-
-                <div class="post">
-                    <div class="thumb" style="background:#fff1cc">Gadgets</div>
-                    <div class="in">
-                        <span class="tag">Gadgets</span>
-                        <h3>Are foldable phones worth it yet?</h3>
-                        <p>We look at price, battery and how long the screen really lasts.</p>
-                        <span class="meta">5 min read</span>
-                    </div>
-                </div>
-
-                <div class="post">
-                    <div class="thumb" style="background:#d9f2e6">Web</div>
-                    <div class="in">
-                        <span class="tag">Web</span>
-                        <h3>What is Laravel and why do developers like it?</h3>
-                        <p>A short look at the PHP framework used by many web developers today.</p>
-                        <span class="meta">4 min read</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <x-footer />
-
-</body>
-
-</html>
+@endsection
